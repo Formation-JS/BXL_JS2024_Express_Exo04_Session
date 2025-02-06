@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import homeRouter from './routers/home.router.js';
 
 //! Récuperation des variables d'env
 const { NODE_ENV, PORT } = process.env;
@@ -19,7 +20,8 @@ app.use(express.static('public'));
 // Gestion des formulaire
 app.use(express.urlencoded({ extended: true }));
 
-//TODO Routing
+//! Routing
+app.use(homeRouter);
 
 //! Demarrage du serveur
 app.listen(PORT, () => {
