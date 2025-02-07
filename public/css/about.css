@@ -1,0 +1,9 @@
+.desc {
+    color: goldenrod;
+}
+
+.image {
+    height: 20em;
+    width: 30em;
+    object-fit: cover;
+}
