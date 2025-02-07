@@ -16,7 +16,7 @@ const homeController = {
      * @param {express.Response} res La reponse
      */
     about: (req, res) => {
-        res.sendStatus(501);
+        res.render('home/about');
     }
 };
 
