@@ -1,20 +1,21 @@
 import express from 'express';
 
+/**
+ * @callback ExpressCallback
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
+
+/** 
+ * Home Controller
+ * @type {Object<string, ExpressCallback>}
+ */
 const homeController = {
-    /**
-     * Index
-     * @param {express.Request} req La requete
-     * @param {express.Response} res La reponse
-     */
+    
     index: (req, res) => {
         res.render('home/index');
     },
 
-    /**
-     * About
-     * @param {express.Request} req La requete
-     * @param {express.Response} res La reponse
-     */
     about: (req, res) => {
         res.render('home/about');
     }
