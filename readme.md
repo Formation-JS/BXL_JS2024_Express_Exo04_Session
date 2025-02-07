@@ -89,3 +89,26 @@ Modification du fichier package.json : \
 
 Créer le fichier .gitignore \
 Initiliser le repo git
+
+## Impact de l'utilisation d'un pattern sur le temps de développement
+![Schema Versus](ressources/dev_time_pattern.png)
+
+### Avec Pattern
+À la création du projet, du temps devra être investi pour mettre en place le pattern. \
+Ce qui aura comme conséquence que les fonctionnalités du projet n'avanceront pas
+Par la suite, l'utilisation du pattern devrait vous faire gagner du temps et donc développer les fonctionnalités plus rapidement 😉
+
+Recommander pour :
+- Les « gros » projets
+- Projets en equipe
+- Projets long terme avec maintenance
+
+### Sans Pattern
+Mise en place directement des fonctionnalités. \
+Le temps de développement sera plus rapide. \
+Par contre, le projet sera plus complexe à maintenir sur le long terme. 
+
+Recommander pour :
+- Les petits projets
+- Les prototypes (Validation d'un fonctionnalité).
+- Les projets « One shot »
