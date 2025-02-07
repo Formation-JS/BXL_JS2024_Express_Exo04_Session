@@ -1,16 +1,18 @@
+<!-- Définir les variables pour le layout (via res.locals) -->
 <%
-const section_css = `
+locals.section_css = `
     <link rel="stylesheet" href="/css/about.css">
 `;
+locals.title = 'La page about !';
 %>
 
 
-<%- include('../_shared/header', { section_css }); -%>
+<!-- Le rendu de la page "about" -->
+<%- include('../_shared/header'); -%>
 
 <h1>About...</h1>
 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime placeat repellendus quis rerum, inventore possimus nisi vero minus facere recusandae unde qui nemo, id quae voluptates numquam delectus, excepturi odit?</p>
 
 <img class="image" src="images/nara.jpg" alt="Une photo de Nara au japon" />
-
 
 <%- include('../_shared/footer'); -%>
