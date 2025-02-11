@@ -32,7 +32,14 @@ const productController = {
     },
 
     addPost: (req, res) => {
-        res.sendStatus(501);
+        //? Mode des bisounours... Pas de validation
+        const product = req.body;
+
+        // Ajout des données via le service
+        const productId = productService.add(product);
+
+        // Redirection vers la page detail du produit ajouté
+        res.redirect(`/product/${productId}`);
     },
 };
 

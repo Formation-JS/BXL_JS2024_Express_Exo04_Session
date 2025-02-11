@@ -15,6 +15,11 @@ const productService = {
 
     getById : (productId) => {
         return productModel.getById(productId);
+    },
+
+    add: (product) => {
+        const productAdded = productModel.add(product);
+        return productAdded.id;
     }
 
 };
