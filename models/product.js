@@ -72,7 +72,7 @@ const productModel = {
         context.products.push(productNew);
 
         // Renvoi le produit ajouté à jours
-        return structuredClone(productnew);
+        return structuredClone(productNew);
     },
 
     update: () => { throw new Error('Not implemented') },
