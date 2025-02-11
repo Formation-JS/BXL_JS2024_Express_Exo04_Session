@@ -1,0 +1,17 @@
+<%- include('../_shared/header'); -%>
+
+<h1>Detail de <%= product.name %></h1>
+
+<p><%= product.desc %></p>
+<p>
+    <% if(product.soldePrice) { %>
+        <span class="solde"><%= product.price %></span> - <%= product.soldePrice %>
+    <% } else { %>
+        <%= product.price %>
+    <% } %>
+</p>
+
+<br>
+<a href="/product">Retourner à la liste des produits</a>
+
+<%- include('../_shared/footer'); -%>

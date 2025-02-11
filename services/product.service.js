@@ -11,8 +11,11 @@ const productService = {
                                      }));
 
         return products
-    }
+    },
 
+    getById : (productId) => {
+        return productModel.getById(productId);
+    }
 
 };
 
