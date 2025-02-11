@@ -1,5 +1,22 @@
+import * as yup from 'yup';
 import productService from "../services/product.service.js";
 
+const productSchema = yup.object({
+    name: yup.string()
+        .required("Le nom du produit n'est pas optionnel !")
+        .trim(),
+    desc: yup.string()
+        .notRequired()
+        .trim()
+        .test(d => d === '' || d.length >= 3 && d.length <= 500),
+    price: yup.number().typeError('Veuillez encoder un nombre valide')
+        .required()
+        .positive(),
+    soldePrice: yup.number()
+        .transform((value) => (isNaN(value) ? undefined : value))
+        .notRequired()
+        .positive(),
+});
 
 const productController = {
 
@@ -11,7 +28,7 @@ const productController = {
     detail: (req, res, next) => {
         // ProductId depuis l'url
         const productId = parseInt(req.params.id);
-        if(isNaN(productId)) {
+        if (isNaN(productId)) {
             next();
             return;
         }
@@ -20,7 +37,7 @@ const productController = {
         const product = productService.getById(productId);
 
         //Render
-        if(!product) {
+        if (!product) {
             res.render('product/not-found');
             return;
         }
@@ -28,12 +45,31 @@ const productController = {
     },
 
     addGet: (req, res) => {
-        res.render('product/form-add');
+
+        const product = {
+            name: 'Test',
+            desc: '',
+            price: '1',
+            soldePrice: ''
+        }
+
+        res.render('product/form-add', { product });
     },
 
-    addPost: (req, res) => {
-        //? Mode des bisounours... Pas de validation
-        const product = req.body;
+    addPost: async (req, res) => {
+        // Validation avec "yup"
+        let product;
+        try {
+            product = await productSchema.validate(req.body);
+            console.log(product);
+        }
+        catch (e) {
+            console.log(e);
+            res.locals.error = e.message;
+
+            res.render('product/form-add', { product: req.body });
+            return;
+        }
 
         // Ajout des données via le service
         const productId = productService.add(product);
@@ -44,3 +80,4 @@ const productController = {
 };
 
 export default productController;
+

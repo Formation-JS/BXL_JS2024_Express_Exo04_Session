@@ -6,23 +6,27 @@
 <form method="POST">
     <div>
         <label for="input-name">Nom *</label>
-        <input id="input-name" name="name" type="text">
+        <input id="input-name" name="name" type="text" value="<%= product.name %>">
     </div>
     <div>
         <label for="input-desc">Desc</label>
-        <textarea id="input-desc" name="desc"></textarea>
+        <textarea id="input-desc" name="desc"><%= product.desc %></textarea>
     </div>
     <div>
         <label for="input-price">Prix *</label>
-        <input id="input-price" name="price" type="text">
+        <input id="input-price" name="price" type="text" value="<%= product.price %>">
     </div>
     <div>
-        <label for="input-sold">Prix soldé</label>
-        <input id="input-sold" name="soldePrice" type="text">
+        <label for="input-solde">Prix soldé</label>
+        <input id="input-solde" name="soldePrice" type="text" value="<%= product.soldePrice %>">
     </div>
     <div>
         <button type="submit">Ajouter</button>
     </div>
 </form>
+
+<% if(locals.error) { %>
+    <p><%= locals.error %></p>
+<% } %>
 
 <%- include('../_shared/footer'); -%>
