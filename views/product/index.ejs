@@ -1,0 +1,15 @@
+<%- include('../_shared/header'); -%>
+
+<h1>Liste des produits</h1>
+
+<ul>
+    <% for(const product of products) { %>
+        <li>
+            <a href="/product/<%= product.id %>">
+                <%= product.name %> <%= product.price.toLocaleString('fr-be', { style: 'currency', currency: 'EUR'}) %>
+            </a>
+        </li>
+    <% } %>
+</ul>
+
+<%- include('../_shared/footer'); -%>

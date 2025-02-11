@@ -79,3 +79,5 @@ const productModel = {
 
     delete: () => { throw new Error('Not implemented') },
 }
+
+export default productModel;
