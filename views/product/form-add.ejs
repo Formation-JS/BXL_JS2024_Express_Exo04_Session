@@ -1,0 +1,28 @@
+<%- include('../_shared/header'); -%>
+
+<h1>Ajouter un nouveau produit</h1>
+<a href="/product">Retourner à la liste des produits</a>
+
+<form>
+    <div>
+        <label for="input-name">Nom *</label>
+        <input id="input-name" name="name" type="text">
+    </div>
+    <div>
+        <label for="input-desc">Desc</label>
+        <textarea id="input-desc" name="desc"></textarea>
+    </div>
+    <div>
+        <label for="input-price">Prix *</label>
+        <input id="input-price" name="price" type="text">
+    </div>
+    <div>
+        <label for="input-sold">Prix soldé</label>
+        <input id="input-sold" name="soldePrice" type="text">
+    </div>
+    <div>
+        <button type="submit">Ajouter</button>
+    </div>
+</form>
+
+<%- include('../_shared/footer'); -%>

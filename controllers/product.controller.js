@@ -25,8 +25,15 @@ const productController = {
             return;
         }
         res.render('product/detail', { product });
-    }
+    },
 
+    addGet: (req, res) => {
+        res.render('product/form-add');
+    },
+
+    addPost: (req, res) => {
+        res.sendStatus(501);
+    },
 };
 
 export default productController;

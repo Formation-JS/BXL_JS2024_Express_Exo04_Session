@@ -1,6 +1,7 @@
 <%- include('../_shared/header'); -%>
 
 <h1>Detail de <%= product.name %></h1>
+<a href="/product">Retourner à la liste des produits</a>
 
 <p><%= product.desc %></p>
 <p>
@@ -10,8 +11,5 @@
         <%= product.price %>
     <% } %>
 </p>
-
-<br>
-<a href="/product">Retourner à la liste des produits</a>
 
 <%- include('../_shared/footer'); -%>
