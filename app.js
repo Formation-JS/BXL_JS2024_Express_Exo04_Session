@@ -1,11 +1,13 @@
 import express from 'express';
 import morgan from 'morgan';
+import session from 'express-session';
+
 import homeRouter from './routers/home.router.js';
 import productRouter from './routers/product.router.js';
 import authRouter from './routers/auth.router.js';
 
 //! Récuperation des variables d'env
-const { NODE_ENV, PORT } = process.env;
+const { NODE_ENV, PORT, SESSION_SECRET } = process.env;
 
 //! Création du serveur
 const app = express();
@@ -21,6 +23,16 @@ app.use(morgan('tiny'));
 app.use(express.static('public'));
 // Gestion des formulaire
 app.use(express.urlencoded({ extended: true }));
+// Session
+app.use(session({
+    secret: SESSION_SECRET,
+    saveUninitialized: true,
+    resave: true
+}));
+app.use((req, res, next) => {
+    res.locals.session = req.session;
+    next();
+});
 
 //! Routing
 app.use(homeRouter);

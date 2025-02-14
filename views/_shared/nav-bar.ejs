@@ -5,8 +5,12 @@
         <li><a href="/product">Nos produits</a></li>
     </ul>
     <ul>
+        <% console.log(locals.session) %>
+        <% if(!locals.session.member) { %>
         <li><a href="/auth/login">Se connecter</a></li>
         <li><a href="/auth/register">S'enregistrer</a></li>
+        <% } else { %>
         <li><a href="/auth/logout">Se déconnecter</a></li>
+        <% } %>
     </ul>
 </nav>

@@ -21,7 +21,13 @@ const authController = {
 
         try {
             const member = memberService.login(req.body);
-            // TODO Session
+            
+            // Session
+            req.session.member = {
+                id : member.id,
+                name: member.username,
+                email: member.email
+            };
 
             res.redirect('/');
         }
@@ -37,10 +43,8 @@ const authController = {
         //TODO Add validation
 
         try {
-            const member = memberService.register(req.body);
-            // TODO Session
-
-            res.redirect('/');
+            memberService.register(req.body);
+            res.redirect('/login');
         }
         catch {
             res.render('auth/register', { error: 'Données invalides !' });
@@ -48,7 +52,8 @@ const authController = {
     },
 
     logout: (req, res) => {
-        res.sendStatus(501);
+        req.session.destroy();
+        res.redirect('/');
     }
 
 };
