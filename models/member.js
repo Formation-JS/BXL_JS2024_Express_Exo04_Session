@@ -26,7 +26,7 @@ const members = {
     },
 
     getByUsername: (username) => {
-        return structuredClone(context.members.find(m => m.username = username));
+        return structuredClone(context.members.find(m => m.username === username));
     },
 
     add: ({ username, email, firstname, lastname, password }) => {
