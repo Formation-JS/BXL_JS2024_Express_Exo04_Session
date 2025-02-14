@@ -2,3 +2,37 @@ html {
     color: rgb(0, 127, 129);
     background-color: snow;
 }
+
+body {
+    margin: 0;
+}
+
+main {
+    margin: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(10, 176, 179);
+}
+
+.nav-site {
+    background-color: rgb(0, 127, 129);
+
+    ul {
+        display: flex;
+        padding: 0.5ch;
+        margin: 0;
+        list-style: none;
+        gap: 1em;
+
+        * {
+            padding: 0.5ch;
+            color: snow;
+
+            &:hover {
+                color: cyan;
+            }
+        }
+    }
+}
