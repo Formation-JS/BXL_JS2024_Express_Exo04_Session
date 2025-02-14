@@ -13,14 +13,14 @@ import express from 'express';
 const authController = {
 
     login: (req, res) => {
-        res.sendStatus(501);
+        res.render('auth/login', { error: undefined });
     },
     loginPOST: (req, res) => {
         res.sendStatus(501);
     },
 
     register: (req, res) => {
-        res.sendStatus(501);
+        res.render('auth/register', { error: undefined });
     },
     registerPOST: (req, res) => {
         res.sendStatus(501);

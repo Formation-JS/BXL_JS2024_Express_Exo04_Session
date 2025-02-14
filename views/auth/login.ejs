@@ -1,0 +1,28 @@
+<%
+locals.title = 'Connexion !';
+%>
+
+
+<%- include('../_shared/header'); -%>
+
+<h1>Se connecter !</h1>
+<form method="post">
+    <div>
+        <label for="input-username">Nom d'utilisateur</label>
+        <input id="input-username" type="text" name="username">
+    </div>
+    <div>
+        <label for="input-password">Mot de passe</label>
+        <input id="input-password" type="password" name="password">
+    </div>
+    <% if(error) { %>
+    <div>
+        <span class="error"><%= error %></span>
+    </div>
+    <% } %>
+    <div>
+        <button type="submit">Valider</button>
+    </div>
+</form>
+
+<%- include('../_shared/footer'); -%>
