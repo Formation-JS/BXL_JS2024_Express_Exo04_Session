@@ -1,5 +1,6 @@
 import { Router } from "express";
 import productController from "../controllers/product.controller.js";
+import { authorizeMiddleware } from "../middlewares/authorize.middleware.js";
 
 
 const productRouter = Router();
@@ -11,10 +12,10 @@ const productRouter = Router();
 //? au mécanisme de routing de continuer (Exemple dans la route "detail")
 
 productRouter.get('/product', productController.index);
-productRouter.get('/product/:id', productController.detail);
+productRouter.get('/product/:id', authorizeMiddleware(), productController.detail);
 
-productRouter.get('/product/add', productController.addGet);
-productRouter.post('/product/add', productController.addPost);
+productRouter.get('/product/add', authorizeMiddleware({ adminOnly: true }), productController.addGet);
+productRouter.post('/product/add', authorizeMiddleware({ adminOnly: true }), productController.addPost);
 
 // Ecriture alternative pour les 2 routes du formulaire
 /*
