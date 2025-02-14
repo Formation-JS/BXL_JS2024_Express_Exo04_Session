@@ -1,7 +1,7 @@
 <%- include('../_shared/header'); -%>
 
 <h1>Liste des produits</h1>
-<% if(!!locals.session.member) { %>
+<% if(!!locals.session.member?.isAdmin) { %>
 <a href="/product/add">Ajouter un nouveau produit</a>
 <% } %>
 

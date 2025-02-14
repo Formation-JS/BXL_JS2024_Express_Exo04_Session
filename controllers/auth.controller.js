@@ -26,7 +26,8 @@ const authController = {
             req.session.member = {
                 id : member.id,
                 name: member.username,
-                email: member.email
+                email: member.email,
+                isAdmin: member.isAdmin
             };
 
             res.redirect('/');

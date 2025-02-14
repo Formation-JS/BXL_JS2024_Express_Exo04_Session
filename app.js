@@ -5,6 +5,7 @@ import session from 'express-session';
 import homeRouter from './routers/home.router.js';
 import productRouter from './routers/product.router.js';
 import authRouter from './routers/auth.router.js';
+import errorRouter from './routers/error.router.js';
 
 //! Récuperation des variables d'env
 const { NODE_ENV, PORT, SESSION_SECRET } = process.env;
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 app.use(homeRouter);
 app.use(productRouter);
 app.use(authRouter);
+app.use(errorRouter);
 
 //! Demarrage du serveur
 app.listen(PORT, () => {

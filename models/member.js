@@ -4,7 +4,8 @@ const context = {
             id: 1,
             username: 'della',
             password: 'Test1234=',
-            email: 'della.duck@gmail.be'
+            email: 'della.duck@gmail.be',
+            isAdmin: true
         },
         {
             id: 2,
@@ -12,7 +13,8 @@ const context = {
             password: 'Test1234=',
             email: 'zaza.vanderquack@outlook.be',
             firstname: 'Zaza',
-            lastname: 'Vanderquack'
+            lastname: 'Vanderquack',
+            isAdmin: false
         }
     ],
     nextId: 3
@@ -43,7 +45,8 @@ const members = {
             email,
             password,
             firstname,
-            lastname
+            lastname,
+            isAdmin: false
         };
 
         // Modification de la "Fake DB"
