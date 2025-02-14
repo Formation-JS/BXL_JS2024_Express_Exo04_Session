@@ -1,4 +1,4 @@
-# Pattern MVC avec Express (Correction Exo 03)
+# Pattern MVC avec Express (Correction Exo 04)
 
 ![Pattern MVC](ressources/pattern_mvc.png)
 
